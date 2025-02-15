@@ -15,7 +15,7 @@ def preprocess_data(df, train=False, encoder=None, scaler=None):
     y = df["Risk Factor"] if "Risk Factor" in df else None
 
     if train:
-        encoder = OneHotEncoder(handle_unknown="ignore", sparse=False)
+        encoder = OneHotEncoder(handle_unknown="ignore", sparse_output=False)
         scaler = StandardScaler()
         encoded_cats = encoder.fit_transform(X[categorical_cols])
         scaled_nums = scaler.fit_transform(X[numerical_cols])
